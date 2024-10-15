@@ -20,5 +20,5 @@ Route::middleware([
         return view('dashboard');        
     })->name('dashboard');
 
-    Route::get('/institucions', InstitucionIndex::class)->name('insticion.index');
+    Route::get('/institucions', InstitucionIndex::class)->name('institucion.index');
 });

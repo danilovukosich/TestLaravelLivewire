@@ -2,20 +2,28 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\InstitucionForm;
 use App\Models\Institucion;
 use Livewire\Component;
 
 class InstitucionIndex extends Component
 {
+    public InstitucionForm $form;//injeccion del form
 
     public bool $modalInst = false;//modal
     
 
+    public function save()
+    {
+        $this->form->store();
+        $this->modalInst=false;
+    }
+
     public function render()
     {
         $headers = [
-            ['key' => 'clave', 'label' => '#', 'class' => 'bg-yellow-500 w-1 text-black'],
-            ['key' => 'valor', 'label' => 'Nombre de la institucion', 'class' => 'text-black'],
+            ['key' => 'id', 'label' => '#', 'class' => 'bg-primary w-1 text-black'],
+            ['key' => 'valor', 'label' => 'Nombre de la institucion', 'class' => 'text-black']
         ];
 
         return view('livewire.institucion-index', [
